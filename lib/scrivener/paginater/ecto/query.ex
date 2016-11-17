@@ -40,7 +40,7 @@ defimpl Scrivener.Paginater, for: Ecto.Query do
     |> exclude(:select)
     |> exclude(:group_by)
     |> select([m], count(field(m, ^primary_key), :distinct))
-    |> repo.one!
+    |> repo.one
   end
 
   defp total_pages(total_entries, page_size) do
